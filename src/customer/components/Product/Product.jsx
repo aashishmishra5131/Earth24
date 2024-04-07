@@ -5,6 +5,8 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import { mens_kurta } from '../../../Data/mens_kurta'
 import ProductCard from './ProductCard'
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const sortOptions = [
   { name: 'Price: Low to High', href: '#', current: false },
@@ -18,7 +20,7 @@ const filters = [
     options: [
       { value: 'white', label: 'White', checked: false },
       { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
+      { value: 'blue', label: 'Blue', checked: false },
       { value: 'brown', label: 'Brown', checked: false },
       { value: 'green', label: 'Green', checked: false },
       { value: 'purple', label: 'Purple', checked: false },
@@ -35,7 +37,7 @@ const filters = [
       { value: '12l', label: '12L', checked: false },
       { value: '18l', label: '18L', checked: false },
       { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
+      { value: '40l', label: '40L', checked: false },
     ],
   },
   {
@@ -76,6 +78,33 @@ function classNames(...classes) {
 
 export default function Product() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+
+   const location=useLocation()
+   const navigate=useNavigate()
+  const handleFilter=(value,sectionId)=>{
+
+    const searchParams = new URLSearchParams(location.search)
+    let filterValue=searchParams.getAll(sectionId)
+
+    if(filterValue.length>0&&filterValue[0].split(",").includes(value)){
+      filterValue=filterValue[0].split(",").filter((item)=>item!==value);
+
+      if(filterValue.length===0){
+          searchParams.delete(sectionId)
+      }
+    }
+    else{
+      filterValue.push(value)
+    }
+    if(filterValue.length>0){
+      searchParams.set(sectionId,filterValue.join(","));
+    }
+    const query=searchParams.toString();
+    navigate({search:`?${query}`})
+  }
+
+
+
 
   return (
     <div className="bg-white">
@@ -239,7 +268,8 @@ export default function Product() {
             </h2>
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-              {/* Filters */}
+             <div>
+             <h1 className='text-lg opacity-50 font-bold'>Filters</h1>
               <form className="hidden lg:block">
 
                 {filters.map((section) => (
@@ -263,6 +293,7 @@ export default function Product() {
                             {section.options.map((option, optionIdx) => (
                               <div key={option.value} className="flex items-center">
                                 <input
+                                  onChange={()=>handleFilter(option.value,section.id)}
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
                                   defaultValue={option.value}
@@ -285,6 +316,7 @@ export default function Product() {
                   </Disclosure>
                 ))}
               </form>
+              </div>
 
               {/* Product grid */}
               <div className="lg:col-span-3 w-full">

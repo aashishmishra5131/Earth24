@@ -76,7 +76,7 @@ export default function Navigation() {
     }
   }, [auth.user]);
 
-  console.log(auth, "user first name data");
+  //console.log(auth, "user first name data");
 
   const handleLogout = () => {
     dispatch(logout());

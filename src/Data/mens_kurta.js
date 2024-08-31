@@ -22,9 +22,9 @@ export const mens_kurta=[
             }
         ],
         "quantity":100,
-        "topLavelCategory":"Men",
-        "secondLavelCategory":"Clothing",
-        "thirdLavelCategory":"mens_kurta",
+        "topLevelCategory":"Men",
+        "secondLevelCategory":"Clothing",
+        "thirdLevelCategory":"mens_kurta",
         "description":"A traditional mens kurta"
     },
     {

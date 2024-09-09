@@ -10,6 +10,7 @@ import {
 
 export const findProducts = (reqData) => async (dispatch) => {
   dispatch({ type: FIND_PRODUCTS_REQUEST });
+  console.log(reqData,"sdfghjk");
   const {
     colors,
     sizes,
@@ -25,7 +26,7 @@ export const findProducts = (reqData) => async (dispatch) => {
 
   const query = new URLSearchParams({
   color: colors || '',
-  size: sizes,
+  size: sizes || '',
   minPrice: minPrice || '',
   maxPrice: maxPrice || '',
   minDiscount: minDiscount || '',
@@ -47,9 +48,9 @@ export const findProducts = (reqData) => async (dispatch) => {
 
 export const findProductsById = (reqData) => async (dispatch) => {
   dispatch({ type: FIND_PRODUCT_BY_ID_REQUEST });
-  const { productId } = reqData;
+  const productId  = reqData;
   try {
-    const { data } = await api.get(`/api/products/id/${productId}`);
+    const  {data}  = await api.get(`/api/products/id/${productId}`);
     dispatch({ type: FIND_PRODUCT_BY_ID_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: FIND_PRODUCT_BY_ID_FAILURE, payload: error.message });

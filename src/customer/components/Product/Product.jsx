@@ -17,6 +17,7 @@ import {
 } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import { findProducts } from "../../../state/Product/Action";
+import Pagination from '@mui/material/Pagination';
 
 const sortOptions = [
   { name: "Price: Low to High", href: "#", current: false },
@@ -44,23 +45,20 @@ const filters = [
     id: "size",
     name: "Size",
     options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: false },
+      { value: "S", label: "S", checked: false },
+      { value: "M", label: "M", checked: false },
+      { value: "L", label: "L", checked: false },
     ],
   },
   {
     id: "price",
     name: "Price",
     options: [
-      { value: "0-500", label: "Below 500", checked: false },
+      { value: "100-500", label: "100 - 500", checked: false },
       { value: "500-1000", label: "500 - 1000", checked: false },
       { value: "1000-1500", label: "1000 - 1500", checked: false },
       { value: "1500-2000", label: "1500 - 2000", checked: false },
-      { value: "2000+", label: "Above 2000", checked: false },
+      { value: "2000-10000", label: "Above 2000", checked: false },
     ],
   },
   {
@@ -107,6 +105,14 @@ const {product} = useSelector(store=>store);
   const pageNumber = searchParams.get("page") || 1;
   const stock = searchParams.get("stock");
 
+const handlePaginationChange=(event, value)=>{
+  const searchParams=new URLSearchParams(location.search)
+  searchParams.set("page",value);
+  const query= searchParams.toString();
+  console.log(query, searchParams, value, "sab data")
+  navigate({search:`?${query}`});
+}
+
   const handleFilter = (value, sectionId) => {
     const searchParams = new URLSearchParams(location.search);
     let filterValue = searchParams.getAll(sectionId);
@@ -148,7 +154,7 @@ const {product} = useSelector(store=>store);
       minDiscount: discount || 0,
       sort: sortValue || "price_low",
       pageNumber: pageNumber - 1,
-      pageSize: 10,
+      pageSize: 3,
       stock: stock,
     };
 
@@ -163,6 +169,7 @@ const {product} = useSelector(store=>store);
     pageNumber,
     stock,
   ]);
+  console.log("product hai", product.products);
 
   return (
     <div className="bg-white">
@@ -438,6 +445,11 @@ const {product} = useSelector(store=>store);
               ))}
              </div>
              </div>
+            </div>
+          </section>
+          <section className="w-full px=[3.6rem]">
+            <div className="px-4 py-5 flex justify-center">
+            <Pagination count={product.products?.totalPages} color="secondary" onChange={handlePaginationChange} />
             </div>
           </section>
         </main>

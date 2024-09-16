@@ -55,34 +55,7 @@ export const mens_kurta=[
         "thirdLavelCategory":"mens_kurta",
         "description":"A traditional mens kurta"
     },
-    {
-        "imageUrl":"https://ethnicindia.co/cdn/shop/products/J-3-A.jpg?v=1675846409&width=2400",
-        "brand":"Maje Man",
-        "title":"Men Printend Pure Cotton Stright Kurta",
-        "color":"Green",
-        "discountedPrice":499,
-        "price":1499,
-        "discountPersent":34,
-        "side":[
-            {
-                "name":"S",
-                "quality":20
-            },
-            {
-                "name":"M",
-                "quality":30
-            },
-            {
-                "name":"L",
-                "quality":50
-            }
-        ],
-        "quantity":100,
-        "topLavelCategory":"Men",
-        "secondLavelCategory":"Clothing",
-        "thirdLavelCategory":"mens_kurta",
-        "description":"A traditional mens kurta"
-    },
+   
     {
         "imageUrl":"https://rukminim2.flixcart.com/image/850/1000/xif0q/kurta/g/f/p/l-kohli-black-kurta-kohlikurta-original-imaghz62dhbwkjhj.jpeg?q=90&crop=false",
         "brand":"M Man",

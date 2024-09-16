@@ -167,6 +167,7 @@ export default function ProductDetails() {
                 <p className="font-semibold">{product.product?.discountedPrice}</p>
                 <p className="opacity-50 line-through">{product.product?.price}</p>
                 <p className="text-green-600 font-semibold"> {product.product?.discountPercent}%off</p>
+                <p className="text-green-600 font-semibold">Size: {product.product?.size[0].name}</p>
               </div>
 
               {/* Reviews */}

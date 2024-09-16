@@ -17,7 +17,7 @@ const Cart = () => {
 
   useEffect(()=>{
     dispatch(getCart());
-  },[])
+  },[cart.updateCartItem,cart.deleteCartItem])
 
 
 const deliveryCharge = cart.cart?.totalDiscountedPrice < 500 ? 40 : 0;
@@ -27,8 +27,8 @@ const finalTotalAmount = cart.cart?.totalDiscountedPrice + deliveryCharge;
     <div className="mt-10">
       <div className="lg:grid grid-cols-3 lg:px-16 relative">
         <div className="col-span-2">
-          {[1, 1, 1, 1, 1].map((item) => (
-            <CartItem />
+          {cart.cart?.cartItems.map((item) => (
+            <CartItem item={item}/>
           ))}
         </div>
         <div className="px-7  sticky top-0 h-[100vh] mt-5 lg:mt-0">

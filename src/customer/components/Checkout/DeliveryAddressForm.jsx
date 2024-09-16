@@ -1,7 +1,15 @@
 import React from 'react'
 import AddressCard from '../AddressCard/AddressCard'
 import {Button, Grid,Box, TextField} from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { createOrder } from '../../../state/Order/Action'
+import {useNavigate} from 'react-router-dom';
+
 const DeliveryAddressForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {auth} = useSelector(store=>store);
+  console.log(auth,"auth.user")
 
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -12,17 +20,26 @@ const DeliveryAddressForm = () => {
            streetAddress:data.get("address"),
            city:data.get("city"),
            state:data.get("state"),
-           zip:data.get("zip"),
+           zipCode:data.get("zip"),
            mobile:data.get("phoneNumber"),
         }
-        console.log("Address",address);
-    }
+        
+  const orderData = {address,navigate}
+  dispatch(createOrder(orderData));
+  console.log("Address",address);
+}
+
+
   return (
     <div>
         <Grid container spacing={4}>
             <Grid xs={12} lg={5} className='border rounded-e-md shadow-md h-[30.5rem] overflow-y-scroll'>
                 <div className='p-5 py-7 border-b cursor-pointer'>
-                    <AddressCard/>
+
+
+                   {auth?.user?.address.map((item)=><AddressCard address={item} />)} // Address ka kaam abhi baki hai.
+
+
                     <Button sx={{mt:2,bgcolor:"RGB(145 85 253)"}} size='large' variant='contained'>Deliver Here</Button>
                 </div>
 

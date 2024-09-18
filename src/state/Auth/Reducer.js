@@ -19,7 +19,7 @@ const initialState={
 }
 
 export const authReducer=(state=initialState,action)=>{
-  switch(action.type){ // Corrected typo from action.tupe to action.type
+  switch(action.type){
     case REGISTER_REQUEST:
     case LOGIN_REQUEST:
     case GET_USER_REQUEST:

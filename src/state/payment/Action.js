@@ -9,6 +9,7 @@ export const createPayment = (orderId) => async(dispatch)=>{
     dispatch({type: CREATE_PAYMENT_REQUEST});
     try {
         const {data} = await api.post(`/api/payments/${orderId}`,{});
+        console.log(data,"data");
         if(data.payment_link_url){
             window.location.href = data.payment_link_url;
         }

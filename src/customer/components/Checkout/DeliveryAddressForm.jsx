@@ -37,7 +37,8 @@ const DeliveryAddressForm = () => {
                 <div className='p-5 py-7 border-b cursor-pointer'>
 
 
-                   {auth?.user?.address.map((item)=><AddressCard address={item} />)} // Address ka kaam abhi baki hai.
+                   {auth?.user?.address.map((item)=><AddressCard address={item} />)} 
+                   {/* // Address ka kaam abhi baki hai. */}
 
 
                     <Button sx={{mt:2,bgcolor:"RGB(145 85 253)"}} size='large' variant='contained'>Deliver Here</Button>

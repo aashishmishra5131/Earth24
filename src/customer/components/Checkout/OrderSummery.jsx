@@ -5,6 +5,7 @@ import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { getOrderById } from "../../../state/Order/Action";
 import { useLocation } from "react-router";
+import { createPayment } from "../../../state/payment/Action";
 
 const OrderSummery = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const OrderSummery = () => {
   }, [orderId]);
 
   const handlecheckout = () =>{
-    dispatch(getOrderById(orderId));
+    dispatch(createPayment(orderId));
   }
 
   return (

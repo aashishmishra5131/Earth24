@@ -45,7 +45,6 @@ export default function Navigation() {
   const handleClose = () => {
     setOpenAuthModal(false);
     setAnchorEl(null);
-    //navigate("/");
   };
   const handleOpen = () => {
     setOpenAuthModal(true);

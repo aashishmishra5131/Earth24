@@ -10,7 +10,6 @@ import {
 
 export const findProducts = (reqData) => async (dispatch) => {
   dispatch({ type: FIND_PRODUCTS_REQUEST });
-  console.log(reqData,"sdfghjk");
   const {
     colors,
     sizes,

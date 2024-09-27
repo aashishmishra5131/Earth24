@@ -1,18 +1,25 @@
-import { Grid } from '@mui/material'
-import React from 'react'
+import { Grid } from "@mui/material";
+import React from "react";
+import Achivement from "./Achivement";
+import MonthlyOverView from "./MonthlyOverView";
+import ProductsTable from './ProductsTable'
 
 const AdminDashboard = () => {
   return (
-    <div className=''>
-         <Grid container spacing={2}>
-            <Grid item xs={12} md={4}>
-
-
-                
-            </Grid>
-         </Grid>
+    <div className="p-10">
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={4}>
+          <Achivement/>
+        </Grid>
+        <Grid item xs={12} md={8}>
+         <MonthlyOverView/>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ProductsTable/>
+        </Grid>
+      </Grid>
     </div>
-  )
-}
+  );
+};
 
-export default AdminDashboard
+export default AdminDashboard;

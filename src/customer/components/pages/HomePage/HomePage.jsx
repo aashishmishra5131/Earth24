@@ -1,30 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import MainCarousel from '../../HomeCarousel/MainCarousel'
 import HomeSectionCarousel from '../../HomeSectionCarousel/HomeSectionCarousel'
 import { mens_kurta } from '../../../../Data/mens_kurta'
 import { womens_saree } from '../../../../Data/womens_saree'
 import { watches } from '../../../../Data/watches'
 import { shoes } from '../../../../Data/shoes'
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 
 const HomePage = () => {
-  const [product, setProduct] = useState();
-
-  useEffect(()=>{
-
-   const fetchData = async()=>{
-    try {
-      const response = await axios.get(`http://localhost:5454/api/products/`);
-      setProduct(response);
-    } catch (error) {
-      console.log("Error Message",error);
-    }
-   }
-   fetchData();
-  },[])
-  console.log(product,"home product");
-
   return (
     <>
     <div> 

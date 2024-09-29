@@ -15,7 +15,7 @@ const AdminDashboard = () => {
          <MonthlyOverView/>
         </Grid>
         <Grid item xs={12} md={6}>
-          <ProductsTable/>
+          {/* <ProductsTable/> */}
         </Grid>
       </Grid>
     </div>

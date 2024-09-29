@@ -37,7 +37,7 @@ const Achivement = () => {
         </Button>
         {/* <TriangleImg src=""></TriangleImg> */}
         <TrophyImg
-          src="https://img.freepik.com/premium-photo/golden-trophy-cup-black-background_68747-185.jpg"
+          src="https://thumbs.dreamstime.com/b/champion-golden-trophy-black-background-concept-success-achievement-88335429.jpg"
           sx={{ mb: 6 }}
         />
       </CardContent>

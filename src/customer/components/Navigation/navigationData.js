@@ -23,6 +23,7 @@ const navigation = {
             name: 'Clothing',
             items: [
               { name: 'Tops', href: '#' },
+              { name: 'Saree', href: '#' },
               { name: 'Dresses', href: '#' },
               { name: 'Pants', href: '#' },
             ],

@@ -136,7 +136,7 @@ export default function ProductDetails() {
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <div className="flex flex-wrap space-x-5 justify-center">
+            {/* <div className="flex flex-wrap space-x-5 justify-center">
               {pro.images.map((item) => (
                 <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] max-h-[5rem] mt-4">
                   <img
@@ -146,7 +146,7 @@ export default function ProductDetails() {
                   />
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Product info */}
@@ -274,7 +274,7 @@ export default function ProductDetails() {
 
                 <div className="space-y-6">
                   <p className="text-base text-gray-900">
-                    {pro.description}
+                    {product.product?.description}
                   </p>
                 </div>
               </div>
@@ -313,7 +313,7 @@ export default function ProductDetails() {
             <Grid container spacing={7}>
               <Grid item xs={7}>
                 <div className="space-y-5">
-                  {[1, 1, 1, 1].map((item) => (
+                  {[1,1].map((item) => (
                     <ProductReviewcard />
                   ))}
                 </div>

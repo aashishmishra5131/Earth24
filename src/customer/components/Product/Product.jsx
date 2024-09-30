@@ -154,7 +154,7 @@ const handlePaginationChange=(event, value)=>{
       minDiscount: discount || 0,
       sort: sortValue || "price_low",
       pageNumber: pageNumber ,
-      pageSize: 10,
+      pageSize: 40,
       stock: stock,
     };
 

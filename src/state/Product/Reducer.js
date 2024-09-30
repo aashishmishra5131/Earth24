@@ -7,14 +7,15 @@ import {
     FIND_PRODUCT_BY_ID_SUCCESS,
     FIND_PRODUCTS_REQUEST_WITH_ADMIN,
     FIND_PRODUCTS_SUCCESS_WITH_ADMIN,
-    FIND_PRODUCTS_FAILURE_WITH_ADMIN
+    FIND_PRODUCTS_FAILURE_WITH_ADMIN,
+    DELETE_PRODUCTS_SUCCESS
   } from "./ActionType";
   
   const initialState = {
     products: [],
     product: null,
     loading: false,
-    error: null
+    error: null,
   };
   
   export const customerProductReducer = (state = initialState, action) => {
@@ -28,6 +29,8 @@ import {
         return { ...state, loading: false, error: null, products: action.payload };
       case FIND_PRODUCT_BY_ID_SUCCESS:
         return { ...state, loading: false, error: null, product: action.payload };
+      case DELETE_PRODUCTS_SUCCESS:
+        return{ ...state, loading:false, error:null, deleteProduct: action.payload}
       case  FIND_PRODUCTS_FAILURE_WITH_ADMIN:
       case FIND_PRODUCTS_FAILURE:
       case FIND_PRODUCT_BY_ID_FAILURE:

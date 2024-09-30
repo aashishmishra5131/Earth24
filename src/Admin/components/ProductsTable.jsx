@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { findAdminProducts } from '../../state/Product/Action';
+import { deleteProduct, findAdminProducts } from '../../state/Product/Action';
 import { Avatar, Button, Card, CardHeader } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -16,6 +16,11 @@ const ProductsTable = () => {
 const dispatch = useDispatch();
 const {product}= useSelector(store=>store);
 console.log("products.....",product);
+
+const handleProductDelete=(productId)=>{
+  dispatch(deleteProduct(productId))
+}
+
   useEffect(()=>{
     const data = {
       category: "mens_kurta",
@@ -31,7 +36,7 @@ console.log("products.....",product);
     };
 
    dispatch(findAdminProducts(data));
-  },[])
+  },[product.deleteProduct])
 
   return (
     <div className='p-10'>
@@ -67,7 +72,7 @@ console.log("products.....",product);
             <TableCell>{item.quantity}</TableCell>
             <TableCell>{item.color}</TableCell>
             <TableCell>
-              <Button><DeleteIcon/></Button>
+              <Button onClick={()=>handleProductDelete(item._id)}><DeleteIcon/></Button>
             </TableCell>
           </TableRow>
         ))}

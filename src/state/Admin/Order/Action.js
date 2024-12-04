@@ -20,7 +20,7 @@ import {
   SHIP_ORDERS_SUCCESS,
 } from "./ActionType";
 
-export const getOrders = (reqData) => {
+export const getOrders = () => {
   return async (dispatch) => {
     dispatch({ type: GET_ORDERS_REQUEST });
     try {

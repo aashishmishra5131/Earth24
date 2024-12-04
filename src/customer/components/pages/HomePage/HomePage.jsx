@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux'
 
 
 const HomePage = () => {
+  const {adminOrder} = useSelector(store=>store);
+  console.log(adminOrder,"producthome");
   return (
     <>
     <div> 
